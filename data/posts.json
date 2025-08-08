@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1754646139780y6bi04gtogm",
+    "title": "My Updated First Blog Post",
+    "content": "This is the content of my first blog post about Node.js and Express.",
+    "author": "John Doe",
+    "tags": [
+      "nodejs",
+      "express",
+      "backend"
+    ],
+    "createdAt": "2025-08-08T09:42:19.780Z",
+    "updatedAt": "2025-08-08T09:54:45.668Z",
+    "published": true
+  }
+]

@@ -1,0 +1,73 @@
+### Blog API Test Requests
+### Use this file with VS Code REST Client extension
+
+@baseURL = http://localhost:3000
+
+### 1. Get API Info
+GET {{baseURL}}/
+
+### 2. Get All Posts
+GET {{baseURL}}/api/posts
+
+### 3. Create a New Post
+POST {{baseURL}}/api/posts
+Content-Type: application/json
+
+{
+  "title": "Getting Started with REST APIs",
+  "content": "REST APIs are a fundamental part of modern web development. They provide a standardized way for different applications to communicate with each other over HTTP.",
+  "author": "Jane Smith",
+  "tags": ["rest", "api", "web development", "http"]
+}
+
+### 4. Create Another Post
+POST {{baseURL}}/api/posts
+Content-Type: application/json
+
+{
+  "title": "Understanding Middleware in Express",
+  "content": "Middleware functions are functions that have access to the request object, the response object, and the next middleware function in the application's request-response cycle.",
+  "author": "John Doe",
+  "tags": ["express", "middleware", "nodejs"]
+}
+
+### 5. Get Post by ID (replace with actual ID from previous response)
+GET {{baseURL}}/api/posts/1754646139780y6bi04gtogm
+
+### 6. Update Post (replace with actual ID)
+PUT {{baseURL}}/api/posts/1754646139780y6bi04gtogm
+Content-Type: application/json
+
+{
+  "title": "My Updated First Blog Post",
+  "published": true
+}
+
+### 7. Search Posts
+GET {{baseURL}}/api/posts?search=express
+
+### 8. Filter by Author
+GET {{baseURL}}/api/posts?author=John Doe
+
+### 9. Get Published Posts Only
+GET {{baseURL}}/api/posts?published=true
+
+### 10. Get Statistics
+GET {{baseURL}}/api/posts/stats
+
+### 11. Test Error Handling - Invalid ID
+GET {{baseURL}}/api/posts/invalid-id
+
+### 12. Test Error Handling - Missing Required Fields
+POST {{baseURL}}/api/posts
+Content-Type: application/json
+
+{
+  "title": "Incomplete Post"
+}
+
+### 13. Delete Post (replace with actual ID)
+DELETE {{baseURL}}/api/posts/1754646139780y6bi04gtogm
+
+### 14. Verify Deletion
+GET {{baseURL}}/api/posts

@@ -1,0 +1,177 @@
+{
+  "info": {
+    "name": "Blog API Collection",
+    "description": "Collection for testing the Blog Backend API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get API Info",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/",
+          "host": ["{{baseURL}}"],
+          "path": [""]
+        }
+      }
+    },
+    {
+      "name": "Get All Posts",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/api/posts",
+          "host": ["{{baseURL}}"],
+          "path": ["api", "posts"]
+        }
+      }
+    },
+    {
+      "name": "Get Posts by Author",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/api/posts?author=John Doe",
+          "host": ["{{baseURL}}"],
+          "path": ["api", "posts"],
+          "query": [
+            {
+              "key": "author",
+              "value": "John Doe"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Search Posts",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/api/posts?search=nodejs",
+          "host": ["{{baseURL}}"],
+          "path": ["api", "posts"],
+          "query": [
+            {
+              "key": "search",
+              "value": "nodejs"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Published Posts",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/api/posts?published=true",
+          "host": ["{{baseURL}}"],
+          "path": ["api", "posts"],
+          "query": [
+            {
+              "key": "published",
+              "value": "true"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Post by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/api/posts/{{postId}}",
+          "host": ["{{baseURL}}"],
+          "path": ["api", "posts", "{{postId}}"]
+        }
+      }
+    },
+    {
+      "name": "Create New Post",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Getting Started with Express.js\",\n  \"content\": \"Express.js is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. In this post, we'll explore the basics of setting up an Express server and creating REST APIs.\",\n  \"author\": \"Jane Smith\",\n  \"tags\": [\"express\", \"nodejs\", \"backend\", \"tutorial\"]\n}"
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/posts",
+          "host": ["{{baseURL}}"],
+          "path": ["api", "posts"]
+        }
+      }
+    },
+    {
+      "name": "Update Post",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Getting Started with Express.js - Updated\",\n  \"published\": true\n}"
+        },
+        "url": {
+          "raw": "{{baseURL}}/api/posts/{{postId}}",
+          "host": ["{{baseURL}}"],
+          "path": ["api", "posts", "{{postId}}"]
+        }
+      }
+    },
+    {
+      "name": "Delete Post",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/api/posts/{{postId}}",
+          "host": ["{{baseURL}}"],
+          "path": ["api", "posts", "{{postId}}"]
+        }
+      }
+    },
+    {
+      "name": "Get Statistics",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}/api/posts/stats",
+          "host": ["{{baseURL}}"],
+          "path": ["api", "posts", "stats"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseURL",
+      "value": "http://localhost:3000",
+      "type": "string"
+    },
+    {
+      "key": "postId",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}
