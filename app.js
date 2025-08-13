@@ -24,29 +24,24 @@ if (!fs.existsSync(postsFile)) {
     fs.writeFileSync(postsFile, JSON.stringify([], null, 2));
 }
 
+
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Serve static files (frontend)
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Custom middleware
 app.use(logger);
 
 // Routes
-app.get('/', (req, res) => {
-    res.json({
-        message: 'Welcome to the Blog API',
-        version: '1.0.0',
-        endpoints: {
-            'GET /api/posts': 'Get all posts',
-            'GET /api/posts/:id': 'Get a specific post',
-            'POST /api/posts': 'Create a new post',
-            'PUT /api/posts/:id': 'Update a post',
-            'DELETE /api/posts/:id': 'Delete a post'
-        }
-    });
-});
-
 app.use('/api/posts', postRoutes);
+
+// Home route: serve frontend
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // Error handling middleware (must be last)
 app.use(errorHandler);

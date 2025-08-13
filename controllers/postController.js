@@ -1,14 +1,8 @@
 const Post = require('../models/post');
 
-/**
- * Post Controller
- * Handles all HTTP requests related to blog posts
- */
+
 class PostController {
-    /**
-     * Get all posts
-     * GET /api/posts
-     */
+
     static async getAllPosts(req, res, next) {
         try {
             const { author, published, search } = req.query;
