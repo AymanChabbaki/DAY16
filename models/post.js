@@ -33,7 +33,10 @@ class Post {
     static async getAllPosts() {
         try {
             const data = await fs.readFile(POSTS_FILE, 'utf8');
-            return JSON.parse(data);
+            const posts = JSON.parse(data);
+            
+            // Sort posts by creation date (newest first)
+            return posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         } catch (error) {
             if (error.code === 'ENOENT') {
                 // File doesn't exist, return empty array
